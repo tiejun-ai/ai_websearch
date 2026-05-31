@@ -5,11 +5,10 @@ Workflow:
   1. Web Search  — Tavily fetches top-K results (title, URL, snippet)
   2. LLM Generation — single LiteLLM call produces an answer with inline
      citations ([n](URL)) and a numbered Web Search Results section
-  3. Display — markdown printed to stdout (or rendered as HTML in Colab)
+  3. Output — answer written to a markdown file
 """
 
 import os
-import markdown
 import litellm
 from tavily import TavilyClient
 
@@ -65,23 +64,18 @@ def generate_answer(query, results, model=MODEL):
     return response.choices[0].message.content  # markdown string
 
 
-# --- Step 3: Display the Answer ----------------------------------------------
-def display_answer(answer_md):
-    """Print markdown answer; in Colab, renders as HTML."""
-    try:
-        # Colab / Jupyter: render as HTML
-        from IPython.display import display, HTML
-        html = markdown.markdown(answer_md, extensions=["extra"])
-        display(HTML(html))
-    except ImportError:
-        # Plain terminal: print raw markdown
-        print(answer_md)
+# --- Step 3: Save Answer as Markdown -----------------------------------------
+def save_answer(answer_md, output_file="answer.md"):
+    """Write the markdown answer to a file."""
+    with open(output_file, "w") as f:
+        f.write(answer_md)
+    print(f"Answer saved to {output_file}")
 
 
 # --- Main --------------------------------------------------------------------
 if __name__ == "__main__":
     query = "What are the latest AI breakthroughs in 2025?"  # <- change this
 
-    results = search_web(query)          # Step 1: fetch top-K web results
-    answer_md = generate_answer(query, results)  # Step 2: LLM answer + citations
-    display_answer(answer_md)            # Step 3: render output
+    results = search_web(query)                    # Step 1: fetch top-K web results
+    answer_md = generate_answer(query, results)    # Step 2: LLM answer + citations
+    save_answer(answer_md)                         # Step 3: write markdown file
