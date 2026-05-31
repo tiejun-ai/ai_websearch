@@ -9,7 +9,7 @@
 
 | File | Description |
 |------|-------------|
-| [ai_websearch.ipynb](ai_websearch.ipynb) | Main notebook — [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tiejun-ai/ai_websearch/blob/main/v1/ai_websearch.ipynb) |
+| [ai_websearch.ipynb](ai_websearch.ipynb) | Jupyter notebook version — [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tiejun-ai/ai_websearch/blob/main/v1/ai_websearch.ipynb) |
 | [ai_websearch.py](ai_websearch.py) | Python script version — runs from the terminal and saves the answer to `answer.md` |
 | [ai_websearch.ipynb.demo.pdf](ai_websearch.ipynb.demo.pdf) | Example output from a demo run of the notebook |
 | [CLAUDE.md](CLAUDE.md) | Claude Code instructions — project context, tech stack, architecture, and code guidelines used by Claude Code when working in this repo |
