@@ -6,3 +6,11 @@
     2. LLM generates Answer (including citations) based on Search Results
     3. Single LLM call with no Agent Loop
   * [Example demo run (PDF)](ai_websearch.ipynb.demo.pdf)
+
+## Files
+
+| File | Description |
+|------|-------------|
+| [ai_websearch.ipynb](ai_websearch.ipynb) | Main notebook — open in Google Colab to run the demo interactively |
+| [ai_websearch.py](ai_websearch.py) | Python script version — runs from the terminal and saves the answer to `answer.md` |
+| [ai_websearch.ipynb.demo.pdf](ai_websearch.ipynb.demo.pdf) | Example output from a demo run of the notebook |
