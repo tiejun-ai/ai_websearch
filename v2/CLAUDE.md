@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Input: User Query (Question)
 Output Generation: 
   1. Web Search Result Section: list ALL Unique Web Search Results with:
-    * Assigned result ranking number '[n]' based on Tavily Score
+    * Assigned result ranking number '[n]' based on discovery order
     * URL title as a clickable URL link
     * Summary snippet of the URL content
   2. LLM Answer Section: a markdown Answer to User Query with inline citations (`[n](URL)`), around texts supported by the URL `[n]`.
