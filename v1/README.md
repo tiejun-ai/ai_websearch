@@ -1,5 +1,6 @@
 # ai_websearch
 
+  * Blog: [AI Web Search v1](https://tiejun-ai.github.io/posts/ai_websearch_v1/)
   * AI-driven Web Search Version 1: RAG architecure
     1. Web Search With User's Query
     2. LLM generates Answer (including citations) based on Search Results
