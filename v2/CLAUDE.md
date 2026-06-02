@@ -14,7 +14,7 @@ Output Generation:
     * Summary snippet of the URL content
   2. LLM Answer Section: a markdown Answer to User Query with inline citations (`[n](URL)`), around texts supported by the URL `[n]`.
 
-## Architecture (Agent Loop, Tool Use, Multiple LLM Calls):**
+## Architecture (Agent Loop, Tool Use, Multiple LLM Calls):
 
 1. Tool Use: define a function for Web Search via Tavily (top K <= 10 results) as tool for LLM
 2. Run Agent Loop:
@@ -23,7 +23,7 @@ Output Generation:
   * check LLM response:
     * If the response is Tool Use (Web Search with LLM generated query), do the Web Search, collect the Search Results, add them to Context, and continue the Agent Loop
     * Otherwise, exit the Agent Loop and return the LLM response as Answer
-  * add MAX_TURNs (default=3) paramater, as maximal times the loop can run, which is also maximal number of LLM calls a request can incur.
+  * add MAX_LOOP_TIMES (default=3) paramater, as maximal times the loop can run, which is also maximal number of LLM calls a request can incur.
 3. Generate Output as markdown, convert it to html, and display html in Jupyter notebook.
 
 ## Tech Stack
