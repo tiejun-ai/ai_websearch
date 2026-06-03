@@ -1,4 +1,4 @@
-import os, json, re, sys
+import os, json, sys
 import litellm
 from tavily import TavilyClient
 
@@ -106,11 +106,6 @@ def run_agent(query, model=MODEL, max_loops=MAX_LOOP_TIMES):
 
 def format_output(answer_text, all_results, model_name):
     """Return final markdown string with Answer and Web Search Results sections."""
-    # Normalize LLM citations: replace full-width 【 with standard [
-    answer_text = answer_text.replace('【', '[')
-    # Wrap citation numbers in brackets so [2](URL) renders as [2] instead of 2
-    answer_text = re.sub(r'\[(\d+)\]\(', r'[[\1]](', answer_text)
-
     # Display results in ascending [n] (discovery) order
     ordered = sorted(all_results, key=lambda r: r["num"])
 
@@ -124,6 +119,6 @@ def format_output(answer_text, all_results, model_name):
 # --- Entry Point -------------------------------------------------------------
 
 if __name__ == "__main__":
-    query = sys.argv[1] if len(sys.argv) > 1 else "How was Claude Code implemented?"
+    query = "How was Claude Code implemented?"
     answer_text, all_results, model_name = run_agent(query)
     print(format_output(answer_text, all_results, model_name))
